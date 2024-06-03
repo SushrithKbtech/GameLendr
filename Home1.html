@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles3.css') }}">
+    <title>GameLendr</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/controller.png') }}">
+</head>
+<body>
+    <header>
+        <div class="navbar-brand">
+            <h1>Game<span>Lendr</span></h1>
+        </div>
+        <nav>
+            <li style="list-style-type: none; display: inline-block; padding: 20px; text-decoration: none;"><a href="{{ url_for('home') }}">Home</a></li>
+            <li style="list-style-type: none; display: inline-block; padding: 20px;"><a href="{{ url_for('about') }}" target="_blank">About Us</a></li>
+        </nav>
+    </header>
+    <div class="slider">
+        <button class="prev" onclick="prevSlide()">❮</button>
+        <div class="slides-container" style="margin-top: 20px; margin-bottom: 20px;">
+            <div class="slide">
+                <img src="{{ url_for('static', filename='images/ps5.jpeg') }}" alt="Slide 1">
+                <div class="slide-text1">
+                    <div class="slide1-content">
+                        <h2>Welcome to GameLendr</h2>
+                        <p style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Discover a world of gaming experiences. Rent the latest games and consoles with GameLendr.</p>
+                        <a href="{{ url_for('rent') }}"><button class="rent-now-btn1">Rent Now</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="{{ url_for('static', filename='images/gameslide2.jpg') }}" alt="Slide 2" style="opacity: 0.7;">
+            </div>
+            <div class="slide">
+                <img src="{{ url_for('static', filename='images/slide3.png') }}" alt="Slide 3" style="opacity: 0.7;">
+            </div>
+        </div>
+        <button class="next" onclick="nextSlide()">❯</button>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <footer>
+        <div id="footer" class="footer0">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" width="200" height="170">
+        </div>
+        <div class="footer1">
+            <p style="font-family: fantasy;">Connect with us at</p>
+            <div class="social-media">
+                <a href="https://facebook.com" target="_blank">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+                <a href="https://linkedin.com" target="_blank">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+                <a href="https://youtube.com" target="_blank">
+                    <ion-icon name="logo-youtube"></ion-icon>
+                </a>
+                <a href="https://instagram.com" target="_blank">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+            </div>
+        </div>
+        <div class="footer3">Copyright © <h4>GameLendr</h4></div>
+    </footer>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script>
+        const close = document.querySelector(".close");
+        const open = document.querySelector(".ham");
+        const menu = document.querySelector(".menu");
+        close.addEventListener("click", () => {
+            menu.style.visibility = "hidden";
+        });
+        open.addEventListener("click", () => {
+            menu.style.visibility = "visible";
+        });
+    </script>
+</body>
+</html>

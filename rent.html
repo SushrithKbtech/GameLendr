@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles4.css') }}">
+    <title>GameLendr</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/controller.png') }}">
+</head>
+<body>
+    <header>
+        <div class="navbar-brand">
+            <h1>Game<span>Lendr</span></h1>
+        </div>
+        <nav>
+            <ul style="list-style-type: none; display: flex;">
+                <li style="padding: 20px; text-decoration: none;"><a href="{{ url_for('home') }}">Home</a></li>
+                <li style="padding: 20px;"><a href="{{ url_for('about') }}" target="_blank">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <label for="sort" style="font-weight: bolder;color: yellow;">Sort by:</label>
+    <select id="sort" onchange="sortDevices()">
+        <option value="lowToHigh">Price: Low to High</option>
+        <option value="highToLow">Price: High to Low</option>
+    </select>
+    <div class="device-container">
+        <div class="device-card" data-price="35">
+            <img src="{{ url_for('static', filename='images/offer.png') }}" alt="offer" width="50px" height="50px">
+            <div class="device-image">
+                <img src="{{ url_for('static', filename='images/assassinscreed.jpg') }}" alt="AssassinsCreed">
+            </div>
+            <h2>Assassin's Creed Valhalla</h2>
+            <div class="device-details">
+                <p>Action role-playing game set in an open world with a Viking setting.</p>
+                <a href="{{ url_for('pay',device_id=1) }}" target="_blank"><button class="rentbutton">Rent Now: <span style="text-decoration: line-through;">55INR/Day</span>35INR/day</button></a>
+            </div>
+        </div>
+
+        <div class="device-card" data-price="40">
+            <div class="device-image">
+                <img src="{{ url_for('static', filename='images/forza.jpg') }}" alt="Forza">
+            </div>
+            <h2>Forza Horizon 4</h2>
+            <div class="device-details">
+                <p>Racing game set in an open-world environment based on a fictional representation of the United Kingdom.</p>
+                <a href="{{ url_for('pay',device_id=2) }}" target="_blank"><button class="rentbutton">RentNow:40INR/day</button></a>
+            </div>
+        </div>
+        <div class="device-card" data-price="50">
+            <div class="device-image">
+                <img src="{{ url_for('static', filename='images/gta.png') }}" alt="GTA5">
+            </div>
+            <h2>Grand Theft Auto V</h2>
+            <div class="device-details">
+                <p>Action-adventure game with an open-world environment, played from a third-person perspective.</p>
+                <a href="{{ url_for('pay',device_id=3) }}" target="_blank"><button class="rentbutton">Rent Now:50INR/DAY</button></a>
+            </div>
+        </div>
+    <div class="device-card" data-price="300">
+        <img src="{{ url_for('static', filename='images/offer.png') }}" alt="offer" width="50px" height="50px">
+        <div class="device-image">
+            <img src="{{ url_for('static', filename='images/xboxseriesx.png') }}" alt="XboxSeriesX">
+        </div>
+        <h2>Xbox Series X</h2>
+        <div class="device-details">
+            <p>Next-gen gaming console with powerful hardware and a vast library of games.</p>
+            <a href="{{ url_for('pay',device_id=4) }}" target="_blank"><button class="rentbutton">Rent Now: <span style="text-decoration: line-through;">400INR/Day</span>300INR/day</button></a>
+        </div>
+    </div>
+    
+    <div class="device-card" data-price="1800">
+        <div class="device-image">
+            <img src="{{ url_for('static', filename='images/consheadlap.jpg') }}" alt="ASUSTUFGamingF15DualShock4Combo">
+        </div>
+        <h2>ASUS TUF Gaming F15 Laptop + DualShock 4 Wireless Controller Combo+ Headset</h2>
+        <div class="device-details">
+            <p>Combo featuring a high-performance gaming laptop and an additional wireless controller with a headphone for gaming on the go.</p>
+            <a href="{{ url_for('pay',device_id=5) }}" target="_blank"><button class="rentbutton">Rent Now: <span data-price="1800">1800</span>INR/day</button>
+            </a>
+        </div>
+    </div>
+    
+    <div class="device-card" data-price="500">
+        <div class="device-image">
+            <img src="{{ url_for('static', filename='images/keyboardmouse.png') }}" alt="LogitechGProCorsairK95Combo">
+        </div>
+        <h2>Logitech G Pro Gaming Mouse + Corsair K95 RGB Platinum XT Mechanical Keyboard Combo</h2>
+        <div class="device-details">
+            <p>Combo featuring a high-performance gaming mouse and a premium mechanical keyboard.</p>
+                <a href="{{ url_for('pay',device_id=6) }}" target="_blank"><button class="rentbutton">Rent Now:500INR/DAY</button></a>
+        </div>
+    </div>
+</div>
+    <script>
+        function sortDevices() {
+            var select = document.getElementById("sort");
+            var selectedOption = select.options[select.selectedIndex].value;
+            var deviceContainer = document.querySelector(".device-container");
+            var deviceCards = Array.from(deviceContainer.querySelectorAll(".device-card"));
+
+            deviceCards.sort(function (a, b) {
+                var priceA = getPrice(a);
+                var priceB = getPrice(b);
+
+                if (selectedOption === "lowToHigh") {
+                    return priceA - priceB;
+                } else if (selectedOption === "highToLow") {
+                    return priceB - priceA;
+                }
+
+                
+                return 0;
+            });
+
+            
+            deviceContainer.innerHTML = '';
+            deviceCards.forEach(function (deviceCard) {
+                deviceContainer.appendChild(deviceCard);
+            });
+        }
+
+        function getPrice(deviceCard) {
+            return parseFloat(deviceCard.getAttribute('data-price')) || 0;
+        }
+    </script>
+</body>
+</html>

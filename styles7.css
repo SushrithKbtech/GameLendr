@@ -1,0 +1,49 @@
+ body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('../images/gameback.jpg');
+        }
+
+        header {
+            padding: 5px;
+            text-align: left;
+            background-image: url('../images/gaming.jpeg');
+            overflow: hidden; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-size: larger;
+            margin: 0;
+        }
+
+        .navbar-brand span {
+            color: #ffc107 !important;
+        }
+
+        nav {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .pcontent {
+            margin-top: 250px;
+            max-width: 60%; 
+            background-color: rgba(0, 0, 0, 0.7); 
+            padding: 80px;
+            border-radius: 10px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+            margin-left: 20px;
+            
+        }
+        

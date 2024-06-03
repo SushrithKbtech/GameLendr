@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameLendr</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles5.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/controller.png') }}">
+</head>
+<body>
+        <header>
+            <div class="navbar-brand">
+                <h1>Game<span>Lendr</span></h1>
+            </div>
+            <nav>
+                <li style="list-style-type: none; display: inline-block; padding: 20px; text-decoration: none;"><a href="{{ url_for('home') }}">Home</a></li>
+                <li style="list-style-type: none; display: inline-block; padding: 20px;"><a href="{{ url_for('about') }}" target="_blank">About Us</a></li>
+            </nav>
+        </header>
+    <fieldset>
+    <center>Secure Checkout</center>
+    <br>
+    <br>
+    <form action="{{ url_for('thx') }}" method="get">
+    <form>
+        <label for="femail">Email:</label>
+        <input type="email" id="femail" name="email" required placeholder="Email">
+        <br>
+        <br>
+        <label for="ftype">Payment Type:</label>
+        <br>
+        <br>
+        <input type="radio" id ="ftype" name="type" value="VISA">
+        <label for="VISA">VISA</label>
+        <br>
+        <input type="radio" id ="ftype" name="type" value="Mastercard">
+        <label for="Mastercard">Mastercard</label>
+        <br>
+        <input type="radio" id ="ftype" name="type" value="UPI">
+        <label for="UPI">UPI</label>
+        <br>
+        <input type="radio" id ="ftype" name="type" value="Cash on Delivery">
+        <label for="Cash on Delivery">Cash on Delivery</label>
+        <br>
+        <br>
+        <label for="fcardno">Card No:</label>
+        <input type="text" id="fcardno" name="cardno" required placeholder="Card Number" pattern="[0-9]{16}" title="Please enter a 16-digit card number">
+        <br>
+        <br>
+        <label for="exp">Expiry Date:</label>
+        <input type ="date" id="exp" name="exp" required>
+        <br>
+        <br>
+        <label for="fnameoncard">Name On The Card:</label>
+        <input type="text" id="fnameoncard" name="nameoncard" required placeholder="Name on the Card">
+        <br>
+        <br>
+        <label for="cvv">Cvv/Cvc:</label>
+        <input type="text" id="fsec" name="sec" required placeholder="Security Code" pattern="[0-9]{3}" title="Please enter a 3 digit cvc">
+        <p>For upi scan this qr code</p>
+        <img src="{{ url_for('static', filename='images/qrcode.png') }}" width="300px" height="300px">
+        <p>By placing this order you are agreeing to our terms and conditions</p>
+        <br>
+        <button style="background-color: violet; color:white" type="submit">Place Order</button>
+        </a>
+        
+        </form>
+    </form>
+    </fieldset> 
+</body>
+</html>

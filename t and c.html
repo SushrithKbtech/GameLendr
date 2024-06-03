@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles1.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/controller.png') }}">
+    <title>GameLendr</title>
+</head>
+<body>
+    <header>
+        <div class="navbar-brand">
+            <h1>Game<span>Lendr</span></h1>
+        </div>
+    </header>
+
+    <h1 style="color: #ffc107;font-weight: bolder;">Go Beyond</h1>
+    <h2>Terms And Conditions</h2>
+    <ol>
+        <li>We are not responsible for any faults in the console chosen by the customer.</li>
+        <li>The customer is completely responsible for any damages caused to the console when he/she is using the console devices.</li>
+        <li>If the customer exceeds the time limit(when they are renting it), he/she will be charged 2500 RS for every extra half an hour.</li>
+    </ol>
+
+    <legend>Terms and conditions</legend>
+    <label for="tandc"></label>
+    <input type="checkbox" id="tandc" name="tc" required> I agree with the terms and conditions applied
+    <br>
+
+    <a href="{{ url_for('home') }}" class="goback-button">Continue</a>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameLendr</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles6.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/controller.png') }}">
+</head>
+<body>
+        <header>
+            <div class="navbar-brand">
+                <h1>Game<span>Lendr</span></h1>
+            </div>
+            <nav>
+                <li style="list-style-type: none; display: inline-block; padding: 20px; text-decoration: none;"><a href="{{ url_for('home') }}">Home</a></li>
+                <li style="list-style-type: none; display: inline-block; padding: 20px;"><a href="{{ url_for('about') }}" target="_blank">About Us</a></li>
+            </nav>
+        </header>
+        <p class="pcontent">Your purchase was successful!</br>
+        Thank you for shopping with us</br>
+    Do visit us again!!</p>
+        <a href="{{ url_for('home') }}" class="goback-button">Back to Home</a>
+</body>
+</html>
